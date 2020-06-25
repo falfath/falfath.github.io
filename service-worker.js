@@ -35,10 +35,38 @@ workbox.precaching.precacheAndRoute([
 ]);
 
 workbox.routing.registerRoute(
+	new RegExp('https://api.football-data.org/'),
+		workbox.strategies.staleWhileRevalidate({
+			cacheName: 'bundesliga-app-v2'
+		})
+);
+
+workbox.routing.registerRoute(
+	new RegExp('https://upload.wikimedia.org/'),
+		workbox.strategies.staleWhileRevalidate({
+			cacheName: 'bundesliga-app-v2'
+		})
+);
+
+workbox.routing.registerRoute(
+	new RegExp('https://fonts.googleapis.com/icon?family=Material+Icons'),
+		workbox.strategies.staleWhileRevalidate({
+			cacheName: 'bundesliga-app-v2'
+		})
+);
+
+workbox.routing.registerRoute(
+	new RegExp('https://fonts.gstatic.com/s/materialicons/v52/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2'),
+		workbox.strategies.staleWhileRevalidate({
+			cacheName: 'bundesliga-app-v2'
+		})
+);
+
+workbox.routing.registerRoute(
 	new RegExp('/pages/'),
-	  workbox.strategies.staleWhileRevalidate({
-		  cacheName: 'bundesliga-app-v2'
-	  })
+		workbox.strategies.staleWhileRevalidate({
+			cacheName: 'bundesliga-app-v2'
+		})
 );
 
 self.addEventListener('push', (event) => {
