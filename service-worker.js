@@ -32,7 +32,9 @@ workbox.precaching.precacheAndRoute([
 	{ url: "/assets/images/icons/icon-512x512.png", revision: "1" },
 	{ url: "/manifest.json", revision: "1" },
 	{ url: "/register.js", revision: "1" },
-]);
+], {
+	ignoreUrlParametersMatching: [/.*/]
+});
 
 workbox.routing.registerRoute(
 	new RegExp('https://api.football-data.org/'),
